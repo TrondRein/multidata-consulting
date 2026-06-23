@@ -1,0 +1,22 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Avansert datakonsulentvirksomhet levert av Multidata Consulting." } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="no" class="scroll-smooth bg-neutral-light text-neutral-dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen flex flex-col font-sans antialiased">
+    <slot />
+  </body>
+</html>
