@@ -1,0 +1,120 @@
+// Copy this file into your Sanity Studio as `schemaTypes/siteContent.ts`
+import { defineField, defineType } from 'sanity';
+
+const navLinkField = defineType({
+  name: 'navLink',
+  title: 'Navigasjonslenke',
+  type: 'object',
+  fields: [
+    defineField({ name: 'label', title: 'Etikett', type: 'string', validation: (rule) => rule.required() }),
+    defineField({ name: 'href', title: 'Lenke', type: 'string', validation: (rule) => rule.required() }),
+    defineField({ name: 'isPrimary', title: 'Primær knapp', type: 'boolean', initialValue: false }),
+  ],
+});
+
+const ctaField = defineType({
+  name: 'cta',
+  title: 'CTA',
+  type: 'object',
+  fields: [
+    defineField({ name: 'label', title: 'Etikett', type: 'string', validation: (rule) => rule.required() }),
+    defineField({ name: 'href', title: 'Lenke', type: 'string', validation: (rule) => rule.required() }),
+  ],
+});
+
+const serviceCardField = defineType({
+  name: 'serviceCard',
+  title: 'Tjenestekort',
+  type: 'object',
+  fields: [
+    defineField({ name: 'label', title: 'Kategori', type: 'string', validation: (rule) => rule.required() }),
+    defineField({ name: 'title', title: 'Tittel', type: 'string', validation: (rule) => rule.required() }),
+    defineField({ name: 'description', title: 'Beskrivelse', type: 'text', rows: 4, validation: (rule) => rule.required() }),
+    defineField({
+      name: 'tone',
+      title: 'Fargetone',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Accent', value: 'accent' },
+          { title: 'Orange', value: 'orange' },
+          { title: 'Blue', value: 'blue' },
+          { title: 'Dark', value: 'dark' },
+        ],
+      },
+      validation: (rule) => rule.required(),
+    }),
+    defineField({ name: 'featured', title: 'Fremhevet kort', type: 'boolean', initialValue: false }),
+  ],
+});
+
+export const siteContentType = defineType({
+  name: 'siteContent',
+  title: 'Nettstedsinnhold',
+  type: 'document',
+  fields: [
+    defineField({
+      name: 'seo',
+      type: 'object',
+      fields: [
+        defineField({ name: 'title', type: 'string', validation: (rule) => rule.required() }),
+        defineField({ name: 'description', type: 'text', validation: (rule) => rule.required() }),
+      ],
+    }),
+    defineField({
+      name: 'header',
+      type: 'object',
+      fields: [
+        defineField({ name: 'logoText', type: 'string', validation: (rule) => rule.required() }),
+        defineField({ name: 'logoSubtext', type: 'string', validation: (rule) => rule.required() }),
+        defineField({ name: 'links', type: 'array', of: [{ type: 'navLink' }], validation: (rule) => rule.min(1) }),
+      ],
+    }),
+    defineField({
+      name: 'hero',
+      type: 'object',
+      fields: [
+        defineField({ name: 'title', type: 'string', validation: (rule) => rule.required() }),
+        defineField({ name: 'highlight', type: 'string', validation: (rule) => rule.required() }),
+        defineField({ name: 'description', type: 'text', validation: (rule) => rule.required() }),
+        defineField({ name: 'primaryCta', type: 'cta' }),
+        defineField({ name: 'secondaryCta', type: 'cta' }),
+        defineField({ name: 'image', type: 'image', options: { hotspot: true } }),
+        defineField({ name: 'imageAlt', type: 'string' }),
+      ],
+    }),
+    defineField({
+      name: 'about',
+      type: 'object',
+      fields: [
+        defineField({ name: 'title', type: 'string', validation: (rule) => rule.required() }),
+        defineField({ name: 'description', type: 'text', validation: (rule) => rule.required() }),
+        defineField({ name: 'bullets', type: 'array', of: [{ type: 'string' }], validation: (rule) => rule.min(1) }),
+        defineField({ name: 'image', type: 'image', options: { hotspot: true } }),
+        defineField({ name: 'imageAlt', type: 'string' }),
+      ],
+    }),
+    defineField({
+      name: 'services',
+      type: 'object',
+      fields: [
+        defineField({ name: 'title', type: 'string', validation: (rule) => rule.required() }),
+        defineField({ name: 'description', type: 'text', validation: (rule) => rule.required() }),
+        defineField({ name: 'cards', type: 'array', of: [{ type: 'serviceCard' }], validation: (rule) => rule.min(1) }),
+      ],
+    }),
+    defineField({
+      name: 'footer',
+      type: 'object',
+      fields: [
+        defineField({ name: 'title', type: 'string', validation: (rule) => rule.required() }),
+        defineField({ name: 'description', type: 'text', validation: (rule) => rule.required() }),
+        defineField({ name: 'email', type: 'string', validation: (rule) => rule.required() }),
+        defineField({ name: 'location', type: 'string', validation: (rule) => rule.required() }),
+        defineField({ name: 'copyright', type: 'string', validation: (rule) => rule.required() }),
+      ],
+    }),
+  ],
+});
+
+export const siteContentSchemaTypes = [navLinkField, ctaField, serviceCardField, siteContentType];

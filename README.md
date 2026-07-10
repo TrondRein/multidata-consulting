@@ -18,7 +18,7 @@ Hvis Sanity-variabler mangler, brukes lokale fallback-data automatisk.
 
 ### Miljøvariabler
 
-Legg disse i `.env`:
+Kopier `.env.example` til `.env` og fyll inn:
 
 ```bash
 SANITY_PROJECT_ID=...
@@ -37,3 +37,13 @@ SANITY_READ_TOKEN=... # valgfri for private datasett
 - `footer.title`, `footer.description`, `footer.email`, `footer.location`, `footer.copyright`
 
 Bildene i `hero.image` og `about.image` brukes direkte fra Sanity asset-URL.
+
+### Klart skjema for Sanity Studio
+
+Bruk ferdig schema-definisjon i:
+
+- `sanity/siteContent.schema.ts.txt`
+
+Denne filen matcher feltene frontend henter i:
+
+- `src/lib/content/loadSiteContent.ts`
