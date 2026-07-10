@@ -27,7 +27,16 @@ SANITY_API_VERSION=2025-01-01
 SANITY_READ_TOKEN=... # valgfri for private datasett
 ```
 
-### Felter som forventes i `siteContent`
+### Full Sanity-struktur + ferdig innhold
+
+Repoet inneholder nå både struktur og ferdig utfylt data:
+
+- Schema-typer: `sanity/schemas/`
+- Schema-indeks: `sanity/schemas/index.ts`
+- Seed-data: `sanity/seed/siteContent.ndjson`
+- Steg-for-steg: `sanity/README.md`
+
+### Felter som frontend forventer i `siteContent`
 
 - `seo.title`, `seo.description`
 - `header.logoText`, `header.logoSubtext`, `header.links[]`
@@ -37,13 +46,3 @@ SANITY_READ_TOKEN=... # valgfri for private datasett
 - `footer.title`, `footer.description`, `footer.email`, `footer.location`, `footer.copyright`
 
 Bildene i `hero.image` og `about.image` brukes direkte fra Sanity asset-URL.
-
-### Klart skjema for Sanity Studio
-
-Bruk ferdig schema-definisjon i:
-
-- `sanity/siteContent.schema.ts.txt`
-
-Denne filen matcher feltene frontend henter i:
-
-- `src/lib/content/loadSiteContent.ts`
