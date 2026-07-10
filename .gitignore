@@ -10,7 +10,6 @@ coverage/
 
 # Vercel
 .vercel/
-.vercel/output/
 
 # Environment
 .env
