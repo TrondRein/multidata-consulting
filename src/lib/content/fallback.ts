@@ -21,7 +21,6 @@ export const fallbackSiteContent: SiteContent = {
       'Vi bygger og optimaliserer fremtidens IT-infrastruktur. Fra robuste dataløsninger til skyarkitektur – vi omsetter kompleks data til reell forretningsverdi.',
     primaryCta: { label: 'Kom i gang', href: '#kontakt' },
     secondaryCta: { label: 'Våre tjenester', href: '#tjenester' },
-    imageAlt: 'Abstrakt illustrasjon av skyinfrastruktur og nettverk',
   },
   about: {
     title: 'Teknologi som tåler virkeligheten',
@@ -32,7 +31,6 @@ export const fallbackSiteContent: SiteContent = {
       'Tverrfaglig kompetanse innen sky, data, sikkerhet og automatisering',
       'Pragmatisk leveransemodell som gir raske forbedringer uten å kompromisse kvalitet',
     ],
-    imageAlt: 'Konsulenter i møte rundt en skjerm',
   },
   services: {
     title: 'Våre tjenester',
