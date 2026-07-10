@@ -22,8 +22,8 @@ Kopier `.env.example` til `.env` og fyll inn:
 
 ```bash
 SANITY_PROJECT_ID=...
-SANITY_DATASET=production
-SANITY_API_VERSION=2025-01-01
+SANITY_DATASET=...
+SANITY_API_VERSION=...
 SANITY_READ_TOKEN=... # valgfri for private datasett
 ```
 
@@ -46,3 +46,4 @@ Repoet inneholder nå både struktur og ferdig utfylt data:
 - `footer.title`, `footer.description`, `footer.email`, `footer.location`, `footer.copyright`
 
 Bildene i `hero.image` og `about.image` brukes direkte fra Sanity asset-URL.
+Hvis bilder ikke finnes, rendres siden fortsatt med fallback-innhold uten eksterne bildeavhengigheter.

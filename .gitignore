@@ -4,14 +4,22 @@ node_modules/
 # Build output
 dist/
 .astro/
+.turbo/
+coverage/
+*.tsbuildinfo
 
 # Vercel
 .vercel/
+.vercel/output/
 
 # Environment
 .env
 .env.local
 .env.*.local
+.env.development
+.env.test
+.env.production
+!.env.example
 
 # OS
 .DS_Store
