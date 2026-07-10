@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Services from '../components/Services.astro';
+import Footer from '../components/Footer.astro';
+import { loadSiteContent } from '../lib/content/loadSiteContent';
+
+const content = await loadSiteContent();
+---
+
+<BaseLayout title={content.seo.title} description={content.seo.description}>
+  <Header content={content.header} />
+  <main>
+    <Hero content={content.hero} />
+    <About content={content.about} />
+    <Services content={content.services} />
+  </main>
+  <Footer content={content.footer} />
+</BaseLayout>
