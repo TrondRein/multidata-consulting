@@ -3,6 +3,26 @@
 <section class="relative overflow-hidden bg-gradient-to-b from-brand-blue via-brand-mid to-brand-deep text-white">
   <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-accent via-brand-orange to-brand-accent"></div>
 
+  <!-- Subtle dot grid -->
+  <div class="absolute inset-0 opacity-[0.04]" aria-hidden="true">
+    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="hero-dots" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+          <circle cx="1" cy="1" r="1" fill="white"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#hero-dots)"/>
+    </svg>
+  </div>
+
+  <!-- Concentric circles accent, right side -->
+  <div class="absolute right-0 top-1/2 hidden -translate-y-1/2 translate-x-1/2 lg:block" aria-hidden="true">
+    <div class="h-[560px] w-[560px] rounded-full border border-brand-accent/20"></div>
+    <div class="absolute inset-[80px] rounded-full border border-brand-accent/15"></div>
+    <div class="absolute inset-[160px] rounded-full border border-brand-accent/10"></div>
+    <div class="absolute inset-[240px] rounded-full bg-brand-accent/5"></div>
+  </div>
+
   <div class="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 lg:py-36">
     <p class="mb-6 inline-flex rounded-full border border-brand-accent/50 bg-brand-accent/20 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-orange">
       Senior Microsoft-konsulenttjenester · Oslo
