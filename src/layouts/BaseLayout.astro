@@ -1,22 +1,40 @@
 ---
 interface Props {
-  title: string;
+  title?: string;
   description?: string;
+  canonical?: string;
 }
 
-const { title, description = "Avansert datakonsulentvirksomhet levert av Multidata Consulting." } = Astro.props;
+const {
+  title = "Multidata Consulting | Senior Microsoft-konsulenter",
+  description = "Vi hjelper virksomheter med å bygge sikre, moderne og effektive Microsoft-miljøer – fra strategi og arkitektur til implementering, migrering og videreutvikling.",
+  canonical = "https://multidataconsulting.no/",
+} = Astro.props;
 ---
 
-<!DOCTYPE html>
-<html lang="no" class="scroll-smooth bg-neutral-light text-neutral-dark">
+<!doctype html>
+<html lang="no">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="nb_NO" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="Multidata Consulting" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#0D3B66" />
+
+    <slot name="head" />
   </head>
-  <body class="min-h-screen flex flex-col font-sans antialiased">
+  <body class="bg-slate-50 text-slate-900 antialiased">
     <slot />
   </body>
 </html>
