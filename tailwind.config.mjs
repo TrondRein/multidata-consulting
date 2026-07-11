@@ -6,6 +6,8 @@ export default {
       colors: {
         brand: {
           blue: '#0D3B66',
+          mid: '#144a7d',
+          deep: '#0b2f50',
           orange: '#F4D35E',
           accent: '#EE964B',
         },

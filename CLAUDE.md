@@ -7,7 +7,7 @@ Built with Astro + Tailwind CSS, deployed to Vercel.
 
 **Live URL:** (TBD after first deploy)
 **GitHub repo:** (set after init)
-**Stack:** Astro 4.x · Tailwind CSS 3.x · TypeScript · Vercel (serverless adapter)
+**Stack:** Astro 5.x · Tailwind CSS 3.x · TypeScript · Vercel adapter
 
 ---
 
@@ -21,7 +21,7 @@ src/
 public/           # Static assets (favicon, images, etc.)
 ```
 
-Single-page layout with anchor-based navigation (`#tjenester`, `#om-oss`, `#kontakt`).
+Single-page layout with anchor-based navigation (`#tjenester`, `#hvorfor`, `#prosess`, `#teknologi`, `#kontakt`).
 No CMS, no database — pure static content for now.
 
 ---
@@ -85,12 +85,15 @@ npm run preview   # Preview production build locally
 
 ## Sections (current)
 
-| Section     | Anchor      | Component        | Description                           |
-|-------------|-------------|------------------|---------------------------------------|
-| Header      | —           | `Header.astro`   | Sticky nav with logo + links          |
-| Hero        | —           | `Hero.astro`     | Full-width intro with two CTAs        |
-| Services    | `#tjenester`| `Services.astro` | Bento-grid with 4 service cards       |
-| Footer      | `#kontakt`  | `Footer.astro`   | Contact info + copyright              |
+| Section    | Anchor        | Component        | Description                              |
+|------------|---------------|------------------|------------------------------------------|
+| Header     | —             | `Header.astro`   | Sticky nav with logo, desktop + mobile   |
+| Hero       | —             | `Hero.astro`     | Full-width intro with two CTAs           |
+| Services   | `#tjenester`  | `Services.astro` | 6 service cards in 3-column grid         |
+| Why Us     | `#hvorfor`    | `WhyUs.astro`    | 3-column value proposition cards         |
+| Process    | `#prosess`    | `Process.astro`  | 4-step methodology section               |
+| Tech list  | `#teknologi`  | `TechList.astro` | Technology tag cloud (16 pills)          |
+| Footer     | `#kontakt`    | `Footer.astro`   | Contact info + copyright                 |
 
 **Planned sections (not yet built):**
 - `#om-oss` — About / team / credentials
@@ -104,7 +107,7 @@ npm run preview   # Preview production build locally
 - Adapter: `@astrojs/vercel` (serverless)
 - Deploy: push to `main` → Vercel auto-deploys
 - Environment variables: none required for static build
-- `astro.config.mjs` uses `output: 'serverless'` + vercel adapter
+- `astro.config.mjs` uses `output: 'server'` + vercel adapter
 
 ---
 
